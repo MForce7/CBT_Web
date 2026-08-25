@@ -1,0 +1,332 @@
+[
+  {
+    "question": "Seorang peneliti mengukur daya listrik dengan rumus P = W / t. Jika W (usaha) Memiliki satuan Joule (kg·m²/s²) dan t (waktu) ber-satuan sekon (s), manakah analisis besaran dasar pembentuk daya yang benar?",
+    "options": {
+      "A": "Massa, panjang pangkat dua, dan waktu pangkat minus tiga",
+      "B": "Massa, panjang, dan waktu pangkat minus dua",
+      "C": "Massa pangkat dua, panjang, dan waktu pangkat tiga",
+      "D": "Massa, panjang pangkat minus dua, dan waktu"
+    },
+    "answer": "A",
+    "explanation": "P = W/t = (kg·m²/s²) / s = kg·m²/s³. Pembentuk dasarnya adalah Massa (kg), Panjang kuadrat (m²), dan Waktu pangkat minus tiga (s⁻³)."
+  },
+  {
+    "question": "Dimensi dari besaran Tekanan (P = Gaya / Luas) adalah [M][L]⁻¹[T]⁻². Berdasarkan dimensi ini, bagaimana perubahan satuan tekanan jika satuan panjang diperbesar 2 kali semula?",
+    "options": {
+      "A": "Nilai satuan menjadi 1/2 kali semula",
+      "B": "Nilai satuan menjadi 2 kali semula",
+      "C": "Nilai satuan menjadi 1/4 kali semula",
+      "D": "Nilai satuan tidak berubah"
+    },
+    "answer": "A",
+    "explanation": "Karena dimensi panjang adalah [L]⁻¹, jika panjang L menjadi 2L, faktor pengubahnya menjadi (2)⁻¹ = 1/2 dari semula."
+  },
+  {
+    "question": "Persamaan getaran pegas dinyatakan sebagai T = 2π √(m/k). Jika T adalah waktu (s) dan m adalah massa (kg), analisis dimensi untuk menentukan satuan dari konstanta pegas k adalah...",
+    "options": {
+      "A": "kg·s⁻²",
+      "B": "kg·s⁻¹",
+      "C": "kg·m·s⁻²",
+      "D": "kg⁻¹·s²"
+    },
+    "answer": "A",
+    "explanation": "Kuadratkan kedua ruas: T² = 4π² (m/k) → k = m / T². Maka satuan k adalah kg/s² atau kg·s⁻²."
+  },
+  {
+    "question": "Persamaan konduksi kalor dinyatakan sebagai Q/t = k·A·(ΔT/x). Jika Q/t memiliki satuan Watt (kg·m²/s³), A adalah luas (m²), ΔT adalah suhu (K), dan x adalah tebal (m), apakah satuan dari konduktivitas termal k?",
+    "options": {
+      "A": "kg·m·s⁻³·K⁻¹",
+      "B": "kg·m²·s⁻²·K⁻¹",
+      "C": "kg·s⁻³·K⁻¹",
+      "D": "kg·m⁻¹·s⁻³·K"
+    },
+    "answer": "A",
+    "explanation": "k = (Q/t) · x / (A · ΔT) = (kg·m²/s³) · m / (m² · K) = kg·m·s⁻³·K⁻¹."
+  },
+  {
+    "question": "Dua besaran A dan B dapat dijumlahkan dalam persamaan C = A + B. Berdasarkan aturan keselarasan dimensi, hal ini menganalisis bahwa...",
+    "options": {
+      "A": "Besaran A dan B wajib memiliki dimensi yang identik",
+      "B": "Besaran A dan B boleh memiliki satuan turunan yang berbeda",
+      "C": "Dimensi C adalah hasil penjumlahan dimensi A dan B",
+      "D": "Besaran A dan B merupakan besaran pokok yang sama"
+    },
+    "answer": "A",
+    "explanation": "Penjumlahan dan pengurangan dalam fisika hanya valid jika besaran-besaran tersebut memiliki dimensi (dan satuan) yang identik."
+  },
+  {
+    "question": "Manakah kelompok besaran di bawah ini yang seluruhnya tersusun atas kombinasi besaran pokok massa, panjang, dan waktu?",
+    "options": {
+      "A": "Gaya, Energi, dan Momentum",
+      "B": "Impuls, Kuat Arus, dan Usaha",
+      "C": "Tekanan, Suhu, dan Daya",
+      "D": "Kecepatan, Muatan Listrik, dan Massa Jenis"
+    },
+    "answer": "A",
+    "explanation": "Gaya [MLT⁻²], Energi [ML²T⁻²], dan Momentum [MLT⁻¹] hanya melibatkan dimensi [M], [L], dan [T]."
+  },
+  {
+    "question": "Persamaan posisi benda dinyatakan sebagai x = A·t² + B·t. Jika x dalam meter dan t dalam sekon, satuan dari konstanta A dan B secara berurutan adalah...",
+    "options": {
+      "A": "m/s² dan m/s",
+      "B": "m·s² dan m·s",
+      "C": "m/s dan m/s²",
+      "D": "m dan m/s"
+    },
+    "answer": "A",
+    "explanation": "Dimensi ruas kiri [L]. Maka A·t² harus berdimensi [L] → A = m/s². B·t harus berdimensi [L] → B = m/s."
+  },
+  {
+    "question": "Sebuah besaran X memiliki dimensi [M][L]²[T]⁻². Jika nilai massa dinaikkan 2 kali dan waktu dijadikan 1/2 kali semula, bagaimana nilai besaran X?",
+    "options": {
+      "A": "Meningkat menjadi 8 kali semula",
+      "B": "Meningkat menjadi 4 kali semula",
+      "C": "Tatap / tidak berubah",
+      "D": "Berkurang menjadi 1/4 kali semula"
+    },
+    "answer": "A",
+    "explanation": "X ∝ M · T⁻². M menjadi 2M, T menjadi (1/2)T. Faktor pengali = (2) × (1/2)⁻² = 2 × 4 = 8 kali semula."
+  },
+  {
+    "question": "Jika momentum (p) dan impuls (I) memiliki rumus p = m·v dan I = F·t, analisis dimensi yang tepat untuk membuktikan hubungan keduanya adalah...",
+    "options": {
+      "A": "Keduanya memiliki dimensi identik yaitu [M][L][T]⁻¹",
+      "B": "Impuls berdimensi [M][L][T]⁻² sedangkan momentum [M][L][T]⁻¹",
+      "C": "Keduanya berdimensi sama yaitu [M][L]²[T]⁻¹",
+      "D": "Keduanya tidak dapat dibandingkan secara dimensi"
+    },
+    "answer": "A",
+    "explanation": "Momentum = kg·m/s = [M][L][T]⁻¹. Impuls = N·s = (kg·m/s²)·s = kg·m/s = [M][L][T]⁻¹. Keduanya identik."
+  },
+  {
+    "question": "Manakah pasangan besaran turunan berikut yang memiliki dimensi sama?",
+    "options": {
+      "A": "Usaha dan Momen Gaya",
+      "B": "Gaya dan Tekanan",
+      "C": "Daya dan Energi",
+      "D": "Kecepatan dan Percepatan"
+    },
+    "answer": "A",
+    "explanation": "Usaha (F·s) dan Momen Gaya (F·r) keduanya memiliki satuan N·m atau kg·m²/s² dengan dimensi [M][L]²[T]⁻²."
+  },
+  {
+    "question": "Diketahui persamaan gelombang y = A sin(ωt - kx). Jika y dan x dalam meter serta t dalam sekon, dimensi dari konstanta k adalah...",
+    "options": {
+      "A": "[L]⁻¹",
+      "B": "[L]",
+      "C": "[T]⁻¹",
+      "D": "[L][T]⁻¹"
+    },
+    "answer": "A",
+    "explanation": "Sudut di dalam fungsi sinus tidak berdimensi (tak berdimensi). Jadi k·x harus bernilai 1 (tanpa dimensi) → k berdimensi 1/[L] atau [L]⁻¹."
+  },
+  {
+    "question": "Satuan turunan Newton (N) jika diuraikan ke dalam satuan-satuan dasar SI adalah...",
+    "options": {
+      "A": "kg·m·s⁻²",
+      "B": "kg·m²·s⁻²",
+      "C": "kg·m⁻¹·s⁻²",
+      "D": "kg·m·s⁻¹"
+    },
+    "answer": "A",
+    "explanation": "Berdasarkan Hukum II Newton (F = m·a), satuan Newton adalah kg × m/s² = kg·m·s⁻²."
+  },
+  {
+    "question": "Energi kinetik dihitung dengan Ek = 1/2 m v². Analisis besaran dasar yang menyusun energi kinetik adalah...",
+    "options": {
+      "A": "1 massa, 2 panjang, dan -2 waktu",
+      "B": "1 massa, 1 panjang, dan -2 waktu",
+      "C": "2 massa, 2 panjang, dan -1 waktu",
+      "D": "1 massa, 2 panjang, dan -1 waktu"
+    },
+    "answer": "A",
+    "explanation": "Ek = kg · (m/s)² = kg·m²·s⁻². Terdiri atas massa (1), panjang (2), dan waktu (-2)."
+  },
+  {
+    "question": "Massa jenis didefinisikan sebagai ρ = m / V. Jika satuan massa diubah dari kg menjadi gram dan satuan volume dari m³ menjadi cm³, maka 1 kg/m³ setara dengan...",
+    "options": {
+      "A": "0,001 g/cm³",
+      "B": "1000 g/cm³",
+      "C": "1 g/cm³",
+      "D": "0,01 g/cm³"
+    },
+    "answer": "A",
+    "explanation": "1 kg = 1000 g, 1 m³ = 1.000.000 cm³. Maka 1 kg/m³ = 1000 g / 1.000.000 cm³ = 0,001 g/cm³."
+  },
+  {
+    "question": "Jika gaya F = A·v + B·v², di mana v adalah kecepatan (m/s), maka dimensi konstanta B adalah...",
+    "options": {
+      "A": "[M][L]⁻¹",
+      "B": "[M][L][T]⁻¹",
+      "C": "[M][T]⁻¹",
+      "D": "[M][L]⁻²[T]"
+    },
+    "answer": "A",
+    "explanation": "Dimensi F = [M][L][T]⁻². B·v² harus berdimensi sama dengan F. B · ([L][T]⁻¹)² = [M][L][T]⁻² → B = [M][L]⁻¹."
+  },
+  {
+    "question": "Muatan listrik (Q) dihitung dari I × t (Kuat arus × Waktu). Berdasarkan analisis ini, apakah muatan listrik termasuk besaran pokok?",
+    "options": {
+      "A": "Tidak, karena disusun dari dua besaran pokok yaitu kuat arus dan waktu",
+      "B": "Ya, karena muatan listrik adalah sifat dasar elektron",
+      "C": "Ya, karena memiliki satuan tersendiri yaitu Coulomb",
+      "D": "Tidak, karena Coulomb merupakan gabungan besaran massa dan panjang"
+    },
+    "answer": "A",
+    "explanation": "Muatan listrik adalah besaran turunan karena didefinisikan dari perkalian besaran pokok Kuat Arus (Ampere) dan Waktu (Sekon)."
+  },
+  {
+    "question": "Besaran daya (P) memiliki dimensi [M][L]²[T]⁻³. Berdasarkan dimensi tersebut, besaran dasar apa yang paling dominan mempengaruhi nilai daya saat nilainya diperkecil?",
+    "options": {
+      "A": "Waktu, karena memiliki pangkat eksponen paling besar (-3)",
+      "B": "Panjang, karena berpangkat dua",
+      "C": "Massa, karena berpangkat satu",
+      "D": "Semua besaran mempengaruhi secara setara"
+    },
+    "answer": "A",
+    "explanation": "Besaran dengan nilai eksponen mutlak terbesar (| -3 | = 3) yaitu waktu memberikan pengaruh perubahan terbesar secara eksponensial."
+  },
+  {
+    "question": "Persamaan frekuensi ayunan f = (1 / 2π) √(g / L). Jika f berdimensi [T]⁻¹ dan L adalah panjang [L], dimensi dari percepatan gravitasi g adalah...",
+    "options": {
+      "A": "[L][T]⁻²",
+      "B": "[L][T]⁻¹",
+      "C": "[L]²[T]⁻²",
+      "D": "[L]⁻¹[T]⁻²"
+    },
+    "answer": "A",
+    "explanation": "Kuadratkan: f² = g / (4π² L) → g = f² · L. Dimensi g = [T]⁻² · [L] = [L][T]⁻²."
+  },
+  {
+    "question": "Satuan dari besaran Tekanan adalah Pascal (Pa). Di bawah ini kombinasi satuan dasar yang setara dengan 1 Pascal adalah...",
+    "options": {
+      "A": "kg / (m·s²)",
+      "B": "kg·m / s²",
+      "C": "kg·m² / s²",
+      "D": "kg / (m²·s)"
+    },
+    "answer": "A",
+    "explanation": "P = F / A = (kg·m/s²) / m² = kg / (m·s²) atau kg·m⁻¹·s⁻²."
+  },
+  {
+    "question": "Dimensi dari konstanta gravitasi umum (G) pada hukum Newton F = G·(m₁·m₂)/r² adalah...",
+    "options": {
+      "A": "[M]⁻¹[L]³[T]⁻²",
+      "B": "[M][L]³[T]⁻²",
+      "C": "[M]⁻¹[L]²[T]⁻²",
+      "D": "[M]⁻²[L]³[T]⁻¹"
+    },
+    "answer": "A",
+    "explanation": "G = F·r² / (m₁·m₂) = ([M][L][T]⁻²) · [L]² / [M]² = [M]⁻¹[L]³[T]⁻²."
+  },
+  {
+    "question": "Manakah dari besaran turunan berikut yang pembentuk dasarnya TIDAK melibatkan besaran pokok waktu?",
+    "options": {
+      "A": "Massa Jenis",
+      "B": "Gaya",
+      "C": "Tekanan",
+      "D": "Daya"
+    },
+    "answer": "A",
+    "explanation": "Massa jenis = Massa / Volume (kg/m³). Dimensinya [M][L]⁻³, sama sekali tidak melibatkan waktu [T]."
+  },
+  {
+    "question": "Sebuah mobil bergerak dengan energi kinetik Ek. Jika satuan massa diubah menjadi gram dan kecepatan tetap dalam m/s, bagaimana bentuk analisis dimensinya?",
+    "options": {
+      "A": "Dimensi tetap [M][L]²[T]⁻² karena dimensi tidak bergantung pada pilihan unit satuan",
+      "B": "Dimensi berubah menjadi 1000 kali dimensi semula",
+      "C": "Dimensi berubah menjadi [g][L]²[T]⁻²",
+      "D": "Dimensi menjadi hilang"
+    },
+    "answer": "A",
+    "explanation": "Dimensi adalah sifat kualitatif besaran pembentuk dasar dan TIDAK berubah meskipun unit satuannya diganti (misal kg ke gram, dimensi tetap [M])."
+  },
+  {
+    "question": "Jika E melambangkan energi ([M][L]²[T]⁻²) dan m melambangkan massa ([M]), maka besaran turunan yang diwakili oleh √(E/m) adalah...",
+    "options": {
+      "A": "Kecepatan",
+      "B": "Percepatan",
+      "C": "Gaya",
+      "D": "Jarak"
+    },
+    "answer": "A",
+    "explanation": "√(E/m) = √(([M][L]²[T]⁻²) / [M]) = √([L]²[T]⁻²) = [L][T]⁻¹ (Dimensi Kecepatan)."
+  },
+  {
+    "question": "Suatu besaran X dihitung dari rumus X = Gaya × Waktu / Massa. Dimensi dari besaran X adalah...",
+    "options": {
+      "A": "[L][T]⁻¹",
+      "B": "[L][T]⁻²",
+      "C": "[M][L][T]⁻¹",
+      "D": "[L]²[T]⁻²"
+    },
+    "answer": "A",
+    "explanation": "X = ([M][L][T]⁻²) · [T] / [M] = [L][T]⁻¹. Ini merupakan dimensi dari Kecepatan."
+  },
+  {
+    "question": "Besaran Tegangan Permukaan (γ) dirumuskan sebagai Gaya per satuan Panjang (F / l). Satuan dasar SI dari tegangan permukaan adalah...",
+    "options": {
+      "A": "kg·s⁻²",
+      "B": "kg·m·s⁻²",
+      "C": "kg·m⁻¹·s⁻²",
+      "D": "kg·s⁻¹"
+    },
+    "answer": "A",
+    "explanation": "γ = F / l = (kg·m/s²) / m = kg/s² atau kg·s⁻²."
+  },
+  {
+    "question": "Di antara besaran berikut, manakah besaran yang dimensinya [M][L]⁻³?",
+    "options": {
+      "A": "Massa Jenis",
+      "B": "Tekanan",
+      "C": "Konsentrasi Mol",
+      "D": "Gaya per Volume"
+    },
+    "answer": "A",
+    "explanation": "Massa jenis = Massa / Volume = kg / m³ → berdimensi [M][L]⁻³."
+  },
+  {
+    "question": "Dalam sistem SI, besaran Volt (satuan beda potensial) dirumuskan dari Daya / Kuat Arus (Watt / Ampere). Kombinasi besaran pokok penyusun Volt adalah...",
+    "options": {
+      "A": "Massa, Panjang², Waktu⁻³, Kuat Arus⁻¹",
+      "B": "Massa, Panjang, Waktu⁻², Kuat Arus⁻¹",
+      "C": "Massa, Panjang², Waktu⁻², Kuat Arus",
+      "D": "Massa, Waktu⁻³, Kuat Arus⁻¹"
+    },
+    "answer": "A",
+    "explanation": "Volt = Watt / A = (kg·m²/s³) / A = kg·m²·s⁻³·A⁻¹. Tersusun dari Massa (1), Panjang (2), Waktu (-3), Kuat Arus (-1)."
+  },
+  {
+    "question": "Jika persamaan v = √(P / ρ) adalah benar, di mana P = tekanan [M][L]⁻¹[T]⁻² dan ρ = massa jenis [M][L]⁻³, maka besaran v mewakili...",
+    "options": {
+      "A": "Kecepatan",
+      "B": "Percepatan",
+      "C": "Gaya",
+      "D": "Frekuensi"
+    },
+    "answer": "A",
+    "explanation": "v = √(([M][L]⁻¹[T]⁻²) / ([M][L]⁻³)) = √([L]²[T]⁻²) = [L][T]⁻¹ (Kecepatan)."
+  },
+  {
+    "question": "Intensitas Cahaya (Candela) dan Jumlah Zat (Mol) termasuk ke dalam besaran pokok. Pernyataan analisis yang tepat mengenai keduanya adalah...",
+    "options": {
+      "A": "Keduanya tidak dapat diturunkan dari besaran massa, panjang, maupun waktu",
+      "B": "Keduanya dapat digabungkan menjadi satuan turunan Joule",
+      "C": "Jumlah zat bergantung pada besaran massa jenis",
+      "D": "Intensitas cahaya merupakan besaran turunan dari kuat arus"
+    },
+    "answer": "A",
+    "explanation": "Besaran pokok bersifat independen dan berdiri sendiri, sehingga tidak dapat diturunkan dari kombinasi besaran pokok lainnya."
+  },
+  {
+    "question": "Suatu rumus fisika memiliki persamaaan K = 1/2 m v² + m g h. Berdasarkan aturan analisis dimensi, maka kesimpulan yang paling tepat adalah...",
+    "options": {
+      "A": "Kedua suku di ruas kanan memiliki dimensi yang sama yaitu [M][L]²[T]⁻²",
+      "B": "Persamaan tersebut salah karena mgh tidak memiliki v²",
+      "C": "Suku mgh berdimensi [M][L][T]⁻²",
+      "D": "Konstanta 1/2 mengubah dimensi suku pertama"
+    },
+    "answer": "A",
+    "explanation": "1/2 m v² berdimensi [M][L]²[T]⁻² dan m g h berdimensi [M]·([L][T]⁻²)·[L] = [M][L]²[T]⁻². Karena kedua suku berdimensi sama, penjumlahan tersebut sah secara dimensi."
+  }
+]
