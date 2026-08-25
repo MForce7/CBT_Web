@@ -1,5 +1,7 @@
 const INDEX_JSON_PATH = 'data/index.json';
-const STORAGE_KEY = 'cbt_saved_results';
+
+// GANTI DENGAN URL WEB APP GOOGLE APPS SCRIPT ANDA (hasil Deploy > Web App)
+const SPREADSHEET_API_URL = "https://script.google.com/macros/s/AKfycbxuydjT4eDC0X_wiK6u45p2PfddlrK-zAmqR0PJc77S-tdfQraxx49rgEJt7oJfAQfp/exec   ";
 
 // Global State
 let categoriesData = [];
@@ -368,82 +370,228 @@ function renderReviewList(questions, answers, containerId = 'review-list') {
     });
 }
 
-// 💾 FITUR SAVING KE LOCALSTORAGE
-function saveCurrentResult() {
-    if (!currentExamResult) return;
 
-    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-    saved.unshift(currentExamResult); // Tambah ke awal array
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+// ==========================================
+// 💾 PENYIMPANAN RIWAYAT — SEMUA VIA SPREADSHEET (Google Apps Script)
+// ==========================================
 
-    alert("Hasil evaluasi berhasil disimpan! Anda bisa mengeceknya kapan saja di menu Riwayat Review.");
-    window.location.hash = '#review';
+function isSpreadsheetConfigured() {
+    return SPREADSHEET_API_URL && !SPREADSHEET_API_URL.includes('MASUKKAN-URL-DEPLOY-ANDA-DISINI');
 }
 
-// 📖 RENDER LAMAN REVIEWS SAVED (#review)
-function renderSavedReviewsPage() {
-    const listEl = document.getElementById('saved-reviews-list');
-    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+// Simpan hasil ujian yang baru selesai ke Spreadsheet
+async function saveCurrentResult() {
+    if (!currentExamResult) return;
 
-    if (saved.length === 0) {
+    if (!isSpreadsheetConfigured()) {
+        alert("SPREADSHEET_API_URL belum diatur di app.js. Silakan ganti dengan URL Web App Google Apps Script Anda terlebih dahulu.");
+        return;
+    }
+
+    const btn = document.getElementById('btn-save-result');
+    const originalText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Menyimpan...';
+
+    const itemRiwayat = {
+        id: "hist-" + Date.now(),
+        tanggal: currentExamResult.date,
+        studentName: currentExamResult.studentName,
+        categoryTitle: currentExamResult.categoryTitle,
+        skor: currentExamResult.score,
+        correctCount: currentExamResult.correctCount,
+        wrongCount: currentExamResult.wrongCount,
+        totalSoal: currentExamResult.totalQuestions,
+        // Data lengkap disimpan sebagai string JSON agar rincian jawaban tetap bisa ditampilkan
+        // ulang saat riwayat dibuka kembali dari Spreadsheet.
+        questionsData: JSON.stringify(currentExamResult.questionsData),
+        userAnswers: JSON.stringify(currentExamResult.userAnswers)
+    };
+
+    try {
+        await fetch(SPREADSHEET_API_URL, {
+            method: "POST",
+            mode: "no-cors", // Google Apps Script Web App tidak mengirim header CORS
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                action: "simpan",
+                item: itemRiwayat
+            })
+        });
+
+        alert("Hasil evaluasi berhasil dikirim ke Spreadsheet! Anda bisa mengeceknya di menu Riwayat Review.");
+        window.location.hash = '#review';
+    } catch (error) {
+        console.error("Gagal menyimpan ke Spreadsheet:", error);
+        alert("Gagal menyimpan hasil ke Spreadsheet. Periksa koneksi atau URL Web App Anda.");
+    } finally {
+        btn.disabled = false;
+        btn.textContent = originalText;
+    }
+}
+
+// Tampilkan daftar riwayat dari Spreadsheet di layar #review
+async function renderSavedReviewsPage() {
+    const listEl = document.getElementById('saved-reviews-list');
+    if (!listEl) return;
+
+    if (!isSpreadsheetConfigured()) {
         listEl.innerHTML = `
             <div class="bg-white p-8 rounded-xl border text-center text-slate-400">
-                <p>Belum ada riwayat hasil ujian yang disimpan.</p>
+                <p>SPREADSHEET_API_URL belum diatur di app.js.</p>
+                <p class="text-xs mt-1">Deploy Google Apps Script Anda sebagai Web App lalu tempel URL-nya di app.js.</p>
             </div>
         `;
         return;
     }
 
-    listEl.innerHTML = '';
-    saved.forEach(item => {
-        const card = document.createElement('div');
-        card.className = `bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-4`;
-        
-        card.innerHTML = `
-            <div class="flex justify-between items-start border-b pb-3">
-                <div>
-                    <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-bold uppercase">${item.categoryTitle}</span>
-                    <h3 class="font-bold text-slate-800 text-base mt-1">${item.studentName}</h3>
-                    <p class="text-xs text-slate-400">${item.date}</p>
-                </div>
-                <div class="text-right">
-                    <span class="text-2xl font-black text-blue-600">${item.score}</span>
-                    <span class="text-[10px] block text-slate-400 font-bold uppercase">Nilai</span>
-                </div>
-            </div>
-            <div class="flex justify-between items-center text-xs text-slate-600">
-                <span>✓ Benar: <strong>${item.correctCount}</strong> | ✗ Salah: <strong>${item.wrongCount}</strong></span>
-                <button class="toggle-detail-btn text-blue-600 font-semibold hover:underline">Lihat Rincian Jawaban &darr;</button>
-            </div>
-            <div class="detail-container hidden pt-3 border-t space-y-3"></div>
-        `;
+    listEl.innerHTML = `<p class="text-center text-slate-400 text-sm py-8">Memuat data dari Spreadsheet...</p>`;
 
-        const btnToggle = card.querySelector('.toggle-detail-btn');
-        const detailContainer = card.querySelector('.detail-container');
+    try {
+        const response = await fetch(SPREADSHEET_API_URL);
+        if (!response.ok) throw new Error("Gagal mengambil data dari Spreadsheet.");
+        const dataRiwayat = await response.json();
 
-        btnToggle.addEventListener('click', () => {
-            const isHidden = detailContainer.classList.contains('hidden');
-            if (isHidden) {
-                detailContainer.classList.remove('hidden');
-                btnToggle.innerHTML = 'Sembunyikan Rincian &uparrow;';
-                // Render rincian menggunakan ID unik container
-                const tempId = `saved-detail-${item.id}`;
-                detailContainer.id = tempId;
-                renderReviewList(item.questionsData, item.userAnswers, tempId);
-            } else {
-                detailContainer.classList.add('hidden');
-                btnToggle.innerHTML = 'Lihat Rincian Jawaban &darr;';
-            }
+        if (!dataRiwayat || dataRiwayat.length === 0) {
+            listEl.innerHTML = `
+                <div class="bg-white p-8 rounded-xl border text-center text-slate-400">
+                    <p>Belum ada riwayat hasil ujian yang disimpan.</p>
+                </div>
+            `;
+            return;
+        }
+
+        listEl.innerHTML = '';
+
+        // Tampilkan dari yang terbaru
+        [...dataRiwayat].reverse().forEach(item => {
+            const card = document.createElement('div');
+            card.id = `item-${item.id}`;
+            card.className = `bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-4`;
+
+            card.innerHTML = `
+                <div class="flex justify-between items-start border-b pb-3">
+                    <div>
+                        <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-bold uppercase">${item.categoryTitle || '-'}</span>
+                        <h3 class="font-bold text-slate-800 text-base mt-1">${item.studentName || '-'}</h3>
+                        <p class="text-xs text-slate-400">${item.tanggal || '-'}</p>
+                    </div>
+                    <div class="text-right flex items-start gap-3">
+                        <div>
+                            <span class="text-2xl font-black text-blue-600">${item.skor ?? 0}</span>
+                            <span class="text-[10px] block text-slate-400 font-bold uppercase">Nilai</span>
+                        </div>
+                        <button class="delete-item-btn text-rose-500 hover:text-rose-700 text-xs" title="Hapus item ini">🗑️</button>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center text-xs text-slate-600">
+                    <span>✓ Benar: <strong>${item.correctCount ?? '-'}</strong> | ✗ Salah: <strong>${item.wrongCount ?? '-'}</strong></span>
+                    <button class="toggle-detail-btn text-blue-600 font-semibold hover:underline">Lihat Rincian Jawaban &darr;</button>
+                </div>
+                <div class="detail-container hidden pt-3 border-t space-y-3"></div>
+            `;
+
+            card.querySelector('.delete-item-btn').addEventListener('click', () => hapusRiwayatSatuan(item.id));
+
+            const btnToggle = card.querySelector('.toggle-detail-btn');
+            const detailContainer = card.querySelector('.detail-container');
+
+            btnToggle.addEventListener('click', () => {
+                const isHidden = detailContainer.classList.contains('hidden');
+                if (isHidden) {
+                    detailContainer.classList.remove('hidden');
+                    btnToggle.innerHTML = 'Sembunyikan Rincian &uparrow;';
+
+                    // Rincian jawaban disimpan sebagai string JSON di Spreadsheet, perlu di-parse dulu
+                    try {
+                        const questions = typeof item.questionsData === 'string'
+                            ? JSON.parse(item.questionsData)
+                            : item.questionsData;
+                        const answers = typeof item.userAnswers === 'string'
+                            ? JSON.parse(item.userAnswers)
+                            : item.userAnswers;
+
+                        const tempId = `saved-detail-${item.id}`;
+                        detailContainer.id = tempId;
+                        renderReviewList(questions, answers, tempId);
+                    } catch (err) {
+                        console.error("Gagal membaca rincian jawaban:", err);
+                        detailContainer.innerHTML = `<p class="text-xs text-rose-500">Rincian jawaban tidak tersedia untuk item ini.</p>`;
+                    }
+                } else {
+                    detailContainer.classList.add('hidden');
+                    btnToggle.innerHTML = 'Lihat Rincian Jawaban &darr;';
+                }
+            });
+
+            listEl.appendChild(card);
         });
-
-        listEl.appendChild(card);
-    });
+    } catch (error) {
+        console.error("Gagal memuat riwayat:", error);
+        listEl.innerHTML = `
+            <div class="bg-white p-8 rounded-xl border text-center text-rose-500">
+                <p>Gagal mengambil data riwayat dari Spreadsheet.</p>
+            </div>
+        `;
+    }
 }
 
-// Clear History
-function clearAllHistory() {
-    if (confirm("Apakah Anda yakin ingin menghapus seluruh riwayat ujian tersimpan?")) {
-        localStorage.removeItem(STORAGE_KEY);
-        renderSavedReviewsPage();
+// Hapus satu item riwayat dari Spreadsheet
+async function hapusRiwayatSatuan(idTarget) {
+    if (!confirm("Apakah Anda yakin ingin menghapus item riwayat ini?")) return;
+
+    const elem = document.getElementById(`item-${idTarget}`);
+    if (elem) elem.style.opacity = "0.4";
+
+    try {
+        await fetch(SPREADSHEET_API_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                action: "hapus",
+                id: idTarget
+            })
+        });
+
+        setTimeout(() => {
+            renderSavedReviewsPage();
+        }, 1000);
+    } catch (error) {
+        console.error("Gagal menghapus riwayat:", error);
+        alert("Gagal menghapus data dari Spreadsheet.");
     }
+}
+
+// Hapus SEMUA riwayat di Spreadsheet
+async function clearAllHistory() {
+    if (!isSpreadsheetConfigured()) {
+        alert("SPREADSHEET_API_URL belum diatur di app.js.");
+        return;
+    }
+    if (!confirm("Apakah Anda yakin ingin menghapus seluruh riwayat ujian tersimpan?")) return;
+
+    try {
+        await fetch(SPREADSHEET_API_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                action: "hapusSemua"
+            })
+        });
+
+        setTimeout(() => {
+            renderSavedReviewsPage();
+        }, 1000);
+    } catch (error) {
+        console.error("Gagal menghapus seluruh riwayat:", error);
+        alert("Gagal menghapus seluruh data dari Spreadsheet.");
+    }
+}
+
+// Tombol refresh manual di layar Riwayat
+const btnRefreshHistory = document.getElementById('btn-refresh-history');
+if (btnRefreshHistory) {
+    btnRefreshHistory.addEventListener('click', renderSavedReviewsPage);
 }
