@@ -6,5 +6,13 @@
     "file": "satuan_dimensi_l3.json",
     "timeLimit": 1800,
     "icon": "📐"
+  },
+  {
+    "id": "fis-02",
+    "title": "Fisika: Pengukuran & Angka Penting",
+    "description": "Soal pengukuran, aturan angka penting, notasi ilmiah, kesalahan pengukuran, standar deviasi, dan ketidakpastian relatif.",
+    "file": "pengukuran_angka_penting.json",
+    "timeLimit": 2700,
+    "icon": "📏"
   }
 ]

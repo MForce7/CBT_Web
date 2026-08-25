@@ -1,0 +1,332 @@
+[
+    {
+      "question": "Hasil pengukuran tebal pelat logam menggunakan mikrometer sekrup menunjukkan skala utama 5,5 mm dan skala nonius berimpit pada garis ke-24. Tebal pelat tersebut adalah...",
+      "options": {
+        "A": "5,24 mm",
+        "B": "5,74 mm",
+        "C": "5,75 mm",
+        "D": "6,24 mm",
+        "E": "6,74 mm"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "Pengukuran panjang benda dengan jangka sorong memberikan skala utama 2,3 cm dan nonius berimpit di garis 7. Hasil pengukurannya adalah...",
+      "options": {
+        "A": "2,30 cm",
+        "B": "2,35 cm",
+        "C": "2,37 cm",
+        "D": "2,40 cm",
+        "E": "3,00 cm"
+      },
+      "answer": "C"
+    },
+    {
+      "question": "Banyaknya angka penting pada bilangan 0,004050 adalah...",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "5",
+        "E": "6"
+      },
+      "answer": "D"
+    },
+    {
+      "question": "Jumlah angka penting dari hasil pengukuran 0,07020 m adalah...",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "5",
+        "E": "6"
+      },
+      "answer": "C"
+    },
+    {
+      "question": "Hasil penjumlahan dari 12,45 cm + 3,1 cm sesuai aturan angka penting adalah...",
+      "options": {
+        "A": "15,6 cm",
+        "B": "15,55 cm",
+        "C": "15,5 cm",
+        "D": "16,0 cm",
+        "E": "15,550 cm"
+      },
+      "answer": "A"
+    },
+    {
+      "question": "Hasil pengurangan 25,4 g - 1,23 g sesuai aturan angka penting adalah...",
+      "options": {
+        "A": "24,17 g",
+        "B": "24,2 g",
+        "C": "24,1 g",
+        "D": "24,0 g",
+        "E": "24,20 g"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "Hasil perkalian 2,5 cm × 3,14 cm menurut aturan angka penting adalah...",
+      "options": {
+        "A": "7,85 cm²",
+        "B": "7,9 cm²",
+        "C": "7,8 cm²",
+        "D": "8,0 cm²",
+        "E": "7,850 cm²"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "Hasil pembagian 15,625 g : 2,5 mL sesuai aturan penulisan angka penting adalah...",
+      "options": {
+        "A": "6,25 g/mL",
+        "B": "6,250 g/mL",
+        "C": "6,3 g/mL",
+        "D": "6,2 g/mL",
+        "E": "6,0 g/mL"
+      },
+      "answer": "C"
+    },
+    {
+      "question": "Panjang sisi sebuah kubus adalah 12,5 cm. Luas permukaan satu sisi kubus tersebut sesuai aturan angka penting adalah...",
+      "options": {
+        "A": "156,25 cm²",
+        "B": "156,3 cm²",
+        "C": "156 cm²",
+        "D": "160 cm²",
+        "E": "150 cm²"
+      },
+      "answer": "C"
+    },
+    {
+      "question": "Hasil dari √625 jika dituliskan sesuai aturan angka penting dari nilai yang ditarik akarnya adalah...",
+      "options": {
+        "A": "25",
+        "B": "25,0",
+        "C": "25,00",
+        "D": "0,25 × 10²",
+        "E": "2,5 × 10¹"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "Sebuah benda persegi panjang memiliki panjang 4,25 cm dan lebar 2,1 cm. Luas benda tersebut adalah...",
+      "options": {
+        "A": "8,925 cm²",
+        "B": "8,9 cm²",
+        "C": "8,93 cm²",
+        "D": "9,0 cm²",
+        "E": "8,8 cm²"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "Massa sebuah kelereng adalah 15,35 g. Jika terdapat 12 kelereng sejenis, massa total kelereng tersebut adalah...",
+      "options": {
+        "A": "184,20 g",
+        "B": "184,2 g",
+        "C": "184 g",
+        "D": "180 g",
+        "E": "190 g"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "Pengukuran berulang terhadap panjang pensil memperoleh data: 10,2 cm; 10,4 cm; 10,1 cm; 10,3 cm; 10,0 cm. Nilai rata-rata dari pengukuran tersebut adalah...",
+      "options": {
+        "A": "10,20 cm",
+        "B": "10,2 cm",
+        "C": "10,18 cm",
+        "D": "10,30 cm",
+        "E": "10,00 cm"
+      },
+      "answer": "A"
+    },
+    {
+      "question": "Dari 5 kali pengukuran massa diperoleh data: 12 g, 12 g, 12 g, 12 g, dan 12 g. Standar deviasi (s_x̄) dari data tersebut adalah...",
+      "options": {
+        "A": "0 g",
+        "B": "0,1 g",
+        "C": "0,01 g",
+        "D": "1 g",
+        "E": "0,5 g"
+      },
+      "answer": "A"
+    },
+    {
+      "question": "Hasil rata-rata pengukuran diameter bola adalah 2,50 cm dengan simpangan baku rata-rata 0,05 cm. Ketidakpastian relatif pengukuran tersebut adalah...",
+      "options": {
+        "A": "1%",
+        "B": "2%",
+        "C": "3%",
+        "D": "4%",
+        "E": "5%"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "Pengukuran berulang suatu variabel fisik menghasilkan ketidakpastian relatif sekitar 1%. Berdasarkan aturan pelaporan data, hasil pengukuran tersebut dapat dilaporkan dengan...",
+      "options": {
+        "A": "2 angka penting",
+        "B": "3 angka penting",
+        "C": "4 angka penting",
+        "D": "5 angka penting",
+        "E": "Bebas"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "Jika suatu pengukuran berulang memiliki ketidakpastian relatif sebesar 0,2%, maka pelaporan hasil pengukurannya berhak atas...",
+      "options": {
+        "A": "2 angka penting",
+        "B": "3 angka penting",
+        "C": "4 angka penting",
+        "D": "5 angka penting",
+        "E": "1 angka penting"
+      },
+      "answer": "C"
+    },
+    {
+      "question": "Ketidakpastian mutlak (Δx) pada pengukuran tunggal menggunakan alat ukur presisi didefinisikan sebagai...",
+      "options": {
+        "A": "Nilai skala terkecil (NST)",
+        "B": "Dua kali nilai skala terkecil",
+        "C": "Setengah dari nilai skala terkecil",
+        "D": "Seperempat dari nilai skala terkecil",
+        "E": "Rata-rata dari nilai skala"
+      },
+      "answer": "C"
+    },
+    {
+      "question": "Sebuah jangka sorong memiliki skala terkecil 0,1 mm. Ketidakpastian mutlak pengukuran tunggal alat ini dalam satuan cm adalah...",
+      "options": {
+        "A": "0,05 cm",
+        "B": "0,005 cm",
+        "C": "0,01 cm",
+        "D": "0,001 cm",
+        "E": "0,1 cm"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "Mikrometer sekrup memiliki skala terkecil 0,01 mm. Ketidakpastian mutlak pengukuran tunggalnya adalah...",
+      "options": {
+        "A": "0,01 mm",
+        "B": "0,001 mm",
+        "C": "0,005 mm",
+        "D": "0,05 mm",
+        "E": "0,0005 mm"
+      },
+      "answer": "C"
+    },
+    {
+      "question": "Tingkat presisi atau ketepatan suatu rangkaian pengukuran berulang dapat ditentukan dari...",
+      "options": {
+        "A": "Kecilnya nilai standar deviasi",
+        "B": "Besarnya nilai rata-rata",
+        "C": "Jenis alat ukur yang digunakan",
+        "D": "Jumlah praktikan",
+        "E": "Skala maksimum alat"
+      },
+      "answer": "A"
+    },
+    {
+      "question": "Kedekatan antara nilai hasil pengukuran dengan nilai sebenarnya (acuan) disebut...",
+      "options": {
+        "A": "Presisi",
+        "B": "Akurasi",
+        "C": "Sensitivitas",
+        "D": "Fluktuasi",
+        "E": "Deviasi"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "Kesalahan akibat keterbatasan titik nol alat atau kesalahan kalibrasi tergolong ke dalam...",
+      "options": {
+        "A": "Kesalahan acak",
+        "B": "Kesalahan manusia",
+        "C": "Kesalahan sistematis",
+        "D": "Kesalahan lingkungan",
+        "E": "Kesalahan relatif"
+      },
+      "answer": "C"
+    },
+    {
+      "question": "Penyebab terjadinya kesalahan acak dalam proses pengukuran adalah...",
+      "options": {
+        "A": "Fluktuasi tegangan listrik dan getaran tanah",
+        "B": "Kerusakan instrumen ukur",
+        "C": "Salah membaca angka nol",
+        "D": "Kesalahan rumus",
+        "E": "Ketidaktepatan skala awal"
+      },
+      "answer": "A"
+    },
+    {
+      "question": "Jika ketidakpastian relatif pengukuran sisi sebuah kubus adalah 0,5%, maka ketidakpastian relatif pengukuran volume kubus tersebut adalah...",
+      "options": {
+        "A": "0,5%",
+        "B": "1,5%",
+        "C": "2,0%",
+        "D": "3,0%",
+        "E": "0,125%"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "Sebuah benda diukur massanya dengan ketidakpastian relatif 1% dan volumenya dengan ketidakpastian relatif 2%. Ketidakpastian relatif penentuan massa jenis benda tersebut adalah...",
+      "options": {
+        "A": "1%",
+        "B": "2%",
+        "C": "3%",
+        "D": "4%",
+        "E": "0,5%"
+      },
+      "answer": "C"
+    },
+    {
+      "question": "Penulisan 0,000520 m² dalam bentuk notasi ilmiah yang tepat sesuai angka penting adalah...",
+      "options": {
+        "A": "5,20 × 10⁻⁴ m²",
+        "B": "5,2 × 10⁻⁴ m²",
+        "C": "52 × 10⁻⁵ m²",
+        "D": "0,52 × 10⁻³ m²",
+        "E": "5,200 × 10⁻⁴ m²"
+      },
+      "answer": "A"
+    },
+    {
+      "question": "Jumlah angka penting pada bilangan 4,500 × 10³ g adalah...",
+      "options": {
+        "A": "4",
+        "B": "3",
+        "C": "2",
+        "D": "5",
+        "E": "1"
+      },
+      "answer": "A"
+    },
+    {
+      "question": "Waktu ayunan pendulum diukur 5 kali: 2,01 s; 2,02 s; 1,98 s; 1,99 s; 2,00 s. Nilai rata-rata waktu ayunan tersebut adalah...",
+      "options": {
+        "A": "2,0 s",
+        "B": "2,00 s",
+        "C": "2,000 s",
+        "D": "2,01 s",
+        "E": "1,99 s"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "Suatu pengukuran berulang menghasilkan rata-rata x̄ = 15,42 mm dan standar deviasi rata-rata s_x̄ = 0,03 mm. Penulisan hasil pengukuran beserta ketidakpastiannya yang benar adalah...",
+      "options": {
+        "A": "(15,42 ± 0,03) mm",
+        "B": "15,42 ± 0,03 mm",
+        "C": "(15,4 ± 0,03) mm",
+        "D": "(15,420 ± 0,030) mm",
+        "E": "15,42 mm ± 0,03"
+      },
+      "answer": "B"
+    }
+  ]
