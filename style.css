@@ -1,0 +1,40 @@
+/* Custom Utility & State Classes */
+
+/* Styling Kustom Radio Option Card */
+.option-card {
+    transition: all 0.2s ease-in-out;
+}
+
+.option-card:hover {
+    border-color: #cbd5e1;
+    background-color: #f8fafc;
+}
+
+.option-card.selected {
+    border-color: #1d4ed8;
+    background-color: #eff6ff;
+}
+
+/* Status Navigasi Soal */
+.nav-btn-default {
+    background-color: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+}
+
+.nav-btn-answered {
+    background-color: #1d4ed8;
+    color: #ffffff;
+    border-color: #1d4ed8;
+}
+
+.nav-btn-doubt {
+    background-color: #f59e0b;
+    color: #ffffff;
+    border-color: #f59e0b;
+}
+
+.nav-btn-active {
+    ring: 2px solid #1d4ed8;
+    ring-offset: 2px;
+}

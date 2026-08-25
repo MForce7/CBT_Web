@@ -1,0 +1,18 @@
+[
+  {
+    "id": "python_basic",
+    "title": "Dasar-Dasar Pemrograman Python",
+    "description": "Evaluasi pemahaman konsep dasar Python, variabel, tipe data, dan pustaka analisis data.",
+    "file": "python_basic.json",
+    "icon": "🐍",
+    "timeLimit": 300
+  },
+  {
+    "id": "rest_api",
+    "title": "Arsitektur RESTful API & Basis Data",
+    "description": "Uji pengetahuan mengenai komunikasi HTTP, prinsip REST API, serta konsep Primary Key.",
+    "file": "rest_api.json",
+    "icon": "🌐",
+    "timeLimit": 600
+  }
+]

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Ujian Online</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .nav-btn-default { @apply bg-white text-slate-700 border-slate-200 hover:bg-slate-100; }
+        .nav-btn-answered { @apply bg-blue-600 text-white border-blue-600; }
+        .nav-btn-doubt { @apply bg-amber-400 text-white border-amber-400; }
+    </style>
+</head>
+<body class="bg-slate-100 min-h-screen text-slate-800 font-sans antialiased flex flex-col justify-between">
+
+    <!-- Header / Navbar Utama -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-30">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2 cursor-pointer" onclick="window.location.hash = '#ujian'">
+                <span class="text-2xl">🎓</span>
+                <h1 class="font-bold text-lg text-slate-800">CBT System</h1>
+            </div>
+
+            <!-- Menu Navigasi Utama -->
+            <nav class="flex items-center gap-4 text-xs font-semibold">
+                <a href="#ujian" class="text-slate-600 hover:text-blue-600 py-1 px-3 rounded-lg hover:bg-slate-50 transition-colors">Ujian</a>
+                <a href="#review" class="text-slate-600 hover:text-blue-600 py-1 px-3 rounded-lg hover:bg-slate-50 transition-colors">Riwayat Review</a>
+            </nav>
+            
+            <!-- Quiz Meta (Timer & Peserta) -->
+            <div id="quiz-meta" class="hidden flex items-center gap-4">
+                <div class="text-right">
+                    <span id="header-student-name" class="block text-xs font-semibold text-slate-700"></span>
+                    <span id="header-category-title" class="block text-[10px] text-slate-400"></span>
+                </div>
+                <div class="bg-slate-900 text-amber-400 font-mono font-bold px-3 py-1.5 rounded-lg text-sm tracking-wider flex items-center gap-1.5">
+                    ⏱️ <span id="timer">00:00</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-6xl mx-auto px-4 py-8 flex-1 w-full flex flex-col justify-center">
+
+        <!-- LAYAR 1: INPUT NAMA (#ujian) -->
+        <section id="start-screen" class="max-w-md w-full mx-auto bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hidden">
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-3">
+                    ✍️
+                </div>
+                <h2 class="text-xl font-bold text-slate-800">Selamat Datang</h2>
+                <p class="text-xs text-slate-500 mt-1">Masukkan nama lengkap Anda untuk memulai sesi ujian.</p>
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <label for="student-name" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Nama Lengkap Peserta</label>
+                    <input type="text" id="student-name" placeholder="Contoh: Ahmad Subagja" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none text-sm transition-all">
+                </div>
+                <button id="btn-next-to-category" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg text-sm transition-all shadow-sm">
+                    Lanjut Pilih Materi &rarr;
+                </button>
+            </div>
+        </section>
+
+
+        <!-- LAYAR 2: PILIH MATERI -->
+        <section id="category-screen" class="max-w-3xl w-full mx-auto hidden">
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-800">Pilih Modul Ujian</h2>
+                    <p id="welcome-text" class="text-sm text-slate-500 font-medium mt-0.5"></p>
+                </div>
+                <button id="btn-back-to-name" class="text-xs font-semibold text-slate-500 hover:text-blue-600 transition-colors">
+                    &larr; Ganti Nama
+                </button>
+            </div>
+
+            <div id="category-list" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Di-generate via app.js -->
+            </div>
+        </section>
+
+
+        <!-- LAYAR 3: LEMBAR UJIAN -->
+        <section id="quiz-screen" class="hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                
+                <div class="lg:col-span-2 space-y-4">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-4">
+                            <span id="question-number" class="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">Soal 1 dari 10</span>
+                            <label class="flex items-center gap-2 cursor-pointer select-none text-xs font-semibold text-slate-600 hover:text-amber-600">
+                                <input type="checkbox" id="doubt-checkbox" class="w-4 h-4 rounded text-amber-500 focus:ring-amber-400 border-slate-300">
+                                Ragu-Ragu
+                            </label>
+                        </div>
+
+                        <p id="question-text" class="text-slate-800 font-medium text-base mb-6 leading-relaxed">
+                            Loading pertanyaan...
+                        </p>
+
+                        <div id="options-container" class="space-y-3">
+                            <!-- Di-generate via app.js -->
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between bg-white p-4 rounded-xl border border-slate-200">
+                        <button id="btn-prev" class="px-5 py-2.5 rounded-lg border border-slate-300 font-semibold text-xs text-slate-600 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed">
+                            &larr; Sebelumnya
+                        </button>
+                        <button id="btn-next" class="px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 font-semibold text-xs text-white transition-colors">
+                            Berikutnya &rarr;
+                        </button>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
+                        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">Navigasi Nomor Soal</h3>
+                        <div id="navigation-grid" class="grid grid-cols-5 gap-2">
+                            <!-- Di-generate via app.js -->
+                        </div>
+
+                        <div class="mt-6 border-t border-slate-100 pt-4 space-y-2 text-xs text-slate-500">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-blue-600 inline-block"></span> Sudah Dijawab
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-amber-400 inline-block"></span> Ragu-Ragu
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-white border border-slate-300 inline-block"></span> Belum Dijawab
+                            </div>
+                        </div>
+
+                        <button id="btn-submit" class="w-full mt-6 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2.5 rounded-lg text-xs transition-colors shadow-sm">
+                            Selesaikan Ujian
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- LAYAR 4: HASIL EVALUASI -->
+        <section id="review-screen" class="max-w-4xl w-full mx-auto hidden space-y-6">
+            
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 text-center">
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-1">Hasil Evaluasi Ujian</span>
+                <h2 id="review-student-name" class="text-lg font-bold text-slate-800 mb-6">Peserta: -</h2>
+
+                <div class="flex justify-center items-center gap-8 mb-6">
+                    <div class="text-center">
+                        <span id="review-score" class="text-5xl font-black text-blue-600 block">0</span>
+                        <span class="text-xs text-slate-400 font-semibold uppercase">Nilai Total</span>
+                    </div>
+                    <div class="h-12 w-px bg-slate-200"></div>
+                    <div class="text-left space-y-1 text-sm">
+                        <div class="text-emerald-600 font-semibold flex items-center gap-2">
+                            <span>✓ Benar:</span> <strong id="review-correct">0 Soal</strong>
+                        </div>
+                        <div class="text-rose-600 font-semibold flex items-center gap-2">
+                            <span>✗ Salah:</span> <strong id="review-wrong">0 Soal</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tombol Simpan Ujian -->
+                <div class="flex justify-center gap-3">
+                    <button id="btn-save-result" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-5 py-2.5 rounded-lg transition-colors shadow-sm flex items-center gap-2">
+                        💾 Simpan Hasil Ujian
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                <h3 class="font-bold text-slate-800 mb-4 border-b pb-3">Rincian Jawaban & Pembahasan</h3>
+                <div id="review-list" class="space-y-4">
+                    <!-- Di-generate via app.js -->
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- LAYAR 5: LAMAN KHUSUS DAFTAR REVIEW SAVED (#review) -->
+        <section id="saved-reviews-screen" class="max-w-4xl w-full mx-auto hidden space-y-6">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-800">Riwayat Ujian Tersimpan</h2>
+                    <p class="text-xs text-slate-500 mt-1">Daftar hasil evaluasi ujian yang telah Anda simpan sebelumnya.</p>
+                </div>
+                <button id="btn-clear-history" class="text-xs text-rose-600 hover:underline">Hapus Semua Riwayat</button>
+            </div>
+
+            <div id="saved-reviews-list" class="space-y-4">
+                <!-- Di-generate via app.js -->
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-400">
+        &copy; 2026 Computer Based Test System. All rights reserved.
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

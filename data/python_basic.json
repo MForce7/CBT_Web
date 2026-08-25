@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "question": "Manakah di antara pustaka Python berikut yang paling umum digunakan untuk manipulasi dan analisis data terstruktur?",
+    "options": {
+      "A": "NumPy",
+      "B": "Pandas",
+      "C": "Matplotlib",
+      "D": "Scikit-Learn"
+    },
+    "answer": "B",
+    "explanation": "Pandas menyediakan struktur data DataFrame yang dirancang khusus untuk manipulasi data terstruktur."
+  }
+]
